@@ -38,7 +38,8 @@
         defaults = {
             pullThreshold:50,
             spinnerTimeout:2000,
-            callback:function(){}
+            callback:function(){},
+            resistance: 50
         };
     function Plugin( element, options ) {
         this.element = element;
@@ -85,7 +86,7 @@
                     inst.arrow.css('visibility', 'visible');
                     inst.indicatorHidden = false;
                 }
-        		top = (ev.originalEvent.touches[0].pageY - ofstop - fingerOffset);
+        		top = (ev.originalEvent.touches[0].pageY - ofstop - fingerOffset - inst.options.resistance);
         		if(top > 1){
         			
         			if(inst.elast){
@@ -114,7 +115,7 @@
         	});
 			elm.unbind('touchend.'+pluginName);
         	elm.on('touchend.'+pluginName, function(ev){
-        		if(top > 0){
+        		if(top + inst.options.resistance > 0){
 	        		if(top > inst.options.pullThreshold){
 	        			inst.options.callback.call(this);
 	        			inst.arrow.hide();
