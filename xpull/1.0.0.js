@@ -82,6 +82,9 @@
         		if(elm.position().top < 0 || elm.parent().scrollTop() > 0){
         			return true;
         		}
+		if(document.body.scrollTop !== 0) {
+			return true;
+		}
                 if(inst.indicatorHidden){
                     inst.arrow.css('visibility', 'visible');
                     inst.indicatorHidden = false;
