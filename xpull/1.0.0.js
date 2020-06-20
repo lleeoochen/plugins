@@ -54,7 +54,7 @@
             var elm = $(inst.element).children();
             inst.elm = elm;
             elm.parent().find('.pull-indicator').remove();
-            elm.parent().prepend('<div class="pull-indicator"><div class="arrow-body"></div><div class="triangle-down"></div><div class="pull-spinner"></div></div>');
+            elm.parent().prepend('<div class="pull-indicator"><div class="arrow-body"></div><div class="triangle-down"></div><div class="pull-spinner">Reload?</div></div>');
             inst.indicator = elm.parent().find('.pull-indicator:eq(0)');
             inst.spinner = elm.parent().find('.pull-spinner:eq(0)');
             inst.arrow = elm.parent().find('.arrow-body:eq(0),.triangle-down:eq(0)');
